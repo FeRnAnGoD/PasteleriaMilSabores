@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Pastelería Mil Sabores</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <a href="index.html"><img src="assets/img/logo.png" alt="Logo Pastelería Mil Sabores"></a>
+        <h2>Mil Sabores</h2>
+      </div>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">📊 Dashboard</a></li>
+          <li><a href="pedidos.html">🛒 Pedidos</a></li>
+          <li><a href="producto.html">📦 Inventario</a></li>
+          <li><a href="usuarios.html">👨‍🍳 Usuarios</a></li>
+          <li><a href="reportes.html">📈 Reportes</a></li>
+        </ul>
+      </nav>
+      
+      <nav class="sidebar-footer">
+        <ul>
+          <li><a href="#">⚙️ Configuración</a></li>
+          <li><a href="#">👤 Perfil</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <h1>¡Bienvenido, Administrador!</h1>
+        <div id="current-date"></div>
+      </header>
+      
+      <section class="dashboard">
+        <div class="card">
+          <span>Pedidos del Mes</span>
+          <strong>125</strong>
+        </div>
+        <div class="card">
+          <span>Clientes Nuevos</span>
+          <strong>32</strong>
+        </div>
+        <div class="card">
+          <span>Productos Disponibles</span>
+          <strong>85</strong>
+        </div>
+        <div class="card">
+          <span>Ingresos Mensuales</span>
+          <strong>$2.580.000</strong>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+
+</body>
+</html>
