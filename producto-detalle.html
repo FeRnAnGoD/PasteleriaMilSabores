@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Detalle del Producto — Pastelería 1000 Sabores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.svg" alt="logo" class="logo">
+        <span class="brand-name">Pastelería 1000 Sabores</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="product-detail"></div>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    function getQueryParam(name){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const code = getQueryParam('code');
+      const prod = PRODUCTS.find(p => p.code === code);
+      const el = document.getElementById('product-detail');
+      if(!prod){ el.innerHTML = '<p>Producto no encontrado</p>'; return; }
+      el.innerHTML = `
+        <div class="product-detail-card">
+          <img src="${prod.img}" alt="${prod.name}">
+          <h2>${prod.name}</h2>
+          <p class="muted">${prod.category}</p>
+          <p>${prod.desc || ''}</p>
+          <p class="price">$ ${prod.price.toLocaleString('es-CL')}</p>
+          <label>Mensaje personalizado (opcional):
+            <input id="custom-msg" placeholder="Feliz cumpleaños!">
+          </label>
+          <div style="margin-top:.6rem">
+            <button class="btn" id="add-btn">Añadir al carrito</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('add-btn').addEventListener('click', () => {
+        const msg = document.getElementById('custom-msg').value;
+        addToCart(prod.code,1,{message: msg});
+        alert('Producto añadido al carrito');
+      });
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>

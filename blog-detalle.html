@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Blog — Detalle</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <main class="container">
+    <div id="blog-detail"></div>
+  </main>
+<script>
+const BLOGS = {
+  b1: { title:'Historia de la torta récord (1995)', img:'assets/img/blog1.svg', body:'Texto largo sobre el récord Guinness y la pastelería...' },
+  b2: { title:'Receta: Mousse de Chocolate', img:'assets/img/blog2.svg', body:'Receta detallada paso a paso...' }
+};
+function qp(name){ return new URL(window.location.href).searchParams.get(name); }
+document.addEventListener('DOMContentLoaded', () => {
+  const id = qp('id'); const b = BLOGS[id];
+  const el = document.getElementById('blog-detail');
+  if(!b){ el.innerHTML='<p>Blog no encontrado</p>'; return; }
+  el.innerHTML = `<h1>${b.title}</h1><img src="${b.img}" alt=""><p>${b.body}</p>`;
+});
+</script>
+</body>
+</html>
