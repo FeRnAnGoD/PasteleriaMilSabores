@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Productos — Pastelería 1000 Sabores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.svg" alt="logo" class="logo">
+        <span class="brand-name">Pastelería 1000 Sabores</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="registro.html" class="btn small">Registro</a>
+        <a href="login.html" class="btn small ghost">Login</a>
+        <button id="cart-btn" aria-label="Ver carrito" class="cart-btn">🛒 <span id="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Catálogo de productos</h1>
+    <div class="filters">
+      <label>Filtrar por tipo:
+        <select id="filter-type">
+          <option value="">Todos</option>
+          <option value="cuadrada">Tortas Cuadradas</option>
+          <option value="circular">Tortas Circulares</option>
+          <option value="individual">Postres Individuales</option>
+        </select>
+      </label>
+      <label>Buscar:
+        <input id="search" placeholder="ej: chocolate">
+      </label>
+    </div>
+
+    <section id="product-list" class="product-grid" aria-live="polite"></section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const list = document.getElementById('product-list');
+      renderProductList('#product-list', PRODUCTS);
+      document.getElementById('filter-type').addEventListener('change', (e) => {
+        const t = e.target.value;
+        const filtered = t ? PRODUCTS.filter(p => p.type === t) : PRODUCTS;
+        renderProductList('#product-list', filtered);
+      });
+      document.getElementById('search').addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase();
+        const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(q) || (p.desc||'').toLowerCase().includes(q));
+        renderProductList('#product-list', filtered);
+      });
+    });
+  </script>
+</body>
+</html>
