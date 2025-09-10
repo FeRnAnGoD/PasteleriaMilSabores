@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blogs — Pastelería 1000 Sabores</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Blogs y noticias</h1>
+    <div id="blogs-list" class="product-grid"></div>
+  </main>
+
+<script>
+const BLOGS = [
+  { id: 'b1', title: 'Historia de la torta récord (1995)', img: 'assets/img/blog1.svg', excerpt: 'Cómo la pastelería participó en el récord Guinness...' },
+  { id: 'b2', title: 'Receta: Mousse de Chocolate', img: 'assets/img/blog2.svg', excerpt: 'Una receta fácil para hacer en casa...' }
+];
+document.addEventListener('DOMContentLoaded', () => {
+  const c = document.getElementById('blogs-list');
+  BLOGS.forEach(b => {
+    const d = document.createElement('div');
+    d.className = 'product-card';
+    d.innerHTML = `<img src="${b.img}" alt=""><h3>${b.title}</h3><p class="muted">${b.excerpt}</p><a class="btn small" href="blog-detalle.html?id=${b.id}">Leer</a>`;
+    c.appendChild(d);
+  });
+});
+</script>
+</body>
+</html>

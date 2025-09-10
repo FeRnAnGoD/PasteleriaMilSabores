@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contacto — Pastelería 1000 Sabores</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Contacto</h1>
+    <form id="contact-form">
+      <label>Nombre:<input name="name" required maxlength="100"></label>
+      <label>Correo:<input name="email" type="email" required></label>
+      <label>Comentario:<textarea name="comment" required maxlength="500"></textarea></label>
+      <div style="margin-top:.6rem">
+        <button class="btn" type="submit">Enviar</button>
+      </div>
+    </form>
+  </main>
+
+<script src="js/validation.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = Object.fromEntries(new FormData(form).entries());
+    const vEmail = validateEmailRules(fd.email);
+    if(!vEmail.ok){ alert(vEmail.msg); return; }
+    if(!fd.name || fd.name.length>100){ alert('Nombre requerido y máximo 100 caracteres'); return; }
+    if(!fd.comment || fd.comment.length>500){ alert('Comentario requerido y máximo 500 caracteres'); return; }
+    alert('Mensaje enviado (simulado). Gracias!');
+    form.reset();
+  });
+});
+</script>
+</body>
+</html>
