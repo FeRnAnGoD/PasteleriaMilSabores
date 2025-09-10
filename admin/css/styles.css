@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif; 
+  background-color: #FFF5E1; 
+  color: #5D4037; 
+}
+
+.admin-container {
+  display: flex;
+  min-height: 100vh; /* Usar min-height para mejor flexibilidad */
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 250px;
+  background-color: #8B4513; 
+  color: #FFF5E1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar .logo img {
+  max-width: 100px; /* Tamaño máximo para el logo */
+  height: auto;
+}
+
+.sidebar .logo h2 {
+  font-family: 'Pacifico', cursive; 
+  margin: 0.5rem 0 0;
+}
+
+/* Estilos para las listas de navegación */
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* El flex-grow empuja el footer hacia abajo */
+.sidebar .main-nav {
+  flex-grow: 1;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 0.8rem 1rem;
+  margin: 0.3rem 0;
+  text-decoration: none;
+  color: #FFF5E1;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  background-color: #FFC0CB; 
+  color: #5D4037;
+}
+
+.sidebar-footer a {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0d8c7;
+  padding-bottom: 1rem;
+}
+
+header h1 {
+  font-family: 'Pacifico', cursive;
+  margin: 0;
+}
+
+/* Estilo para el nuevo botón de notificaciones */
+.notificaciones {
+  background: #fff;
+  border: 1px solid #e0d8c7;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+.notificaciones:hover {
+  background-color: #FFC0CB;
+  border-color: #FFC0CB;
+}
+
+.dashboard {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(93, 64, 55, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Texto descriptivo de la tarjeta */
+.card span {
+  font-size: 0.9rem;
+  color: #B0BEC5; 
+}
+
+/* Valor numérico de la tarjeta */
+.card strong {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #5D4037;
+}
+
+/* --- ESTILO PARA LA FECHA EN EL HEADER --- */
+#current-date {
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  color: #B0BEC5; /* Color de texto secundario */
+  align-self: flex-end; /* Alinea la fecha con la parte de abajo del título */
+  padding-bottom: 0.5rem;
+}
