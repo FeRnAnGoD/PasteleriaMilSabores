@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pastelería 1000 Sabores — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.svg" alt="logo" class="logo">
+        <span class="brand-name">Pastelería 1000 Sabores</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="registro.html" class="btn small">Registro</a>
+        <a href="login.html" class="btn small ghost">Login</a>
+        <button id="cart-btn" aria-label="Ver carrito" class="cart-btn">
+          🛒 <span id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">50 años endulzando tus mejores momentos</h1>
+        <p class="hero-sub">Tradición, calidad e innovación en cada torta.</p>
+        <a href="productos.html" class="btn large">Ver Productos</a>
+      </div>
+      <img src="assets/img/hero.svg" alt="" class="hero-img" />
+    </section>
+
+    <section class="features container" aria-labelledby="catalogo-heading">
+      <h2 id="catalogo-heading">Productos destacados</h2>
+      <div id="featured-products" class="product-grid"></div>
+    </section>
+
+    <section class="why container">
+      <h2>Nuestro compromiso</h2>
+      <p>Apoyamos la formación de estudiantes de gastronomía y preservamos recetas tradicionales.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-left">
+        <img src="assets/img/logo.svg" alt="logo" class="logo-sm">
+        <p>Pastelería 1000 Sabores — Celebrando 50 años</p>
+      </div>
+      <div class="footer-links">
+        <nav>
+          <a href="nosotros.html">Nosotros</a> · <a href="contacto.html">Contacto</a> · <a href="productos.html">Productos</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFeaturedProducts('#featured-products');
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>
